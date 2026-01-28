@@ -1,0 +1,66 @@
+INSTRUÇÕES PARA COMPLETAR O ARQUIVO CSV DE DATAS COMEMORATIVAS 2026
+=====================================================================
+
+Este arquivo contém um template para adicionar as datas comemorativas dos meses
+que ainda faltam (Março a Dezembro).
+
+FORMATO:
+Cada linha deve seguir o padrão:
+DIA DIASEMANA - DESCRIÇÃO
+
+Exemplo:
+1 Qui - Dia da Confraternização Universal
+15 Sex - Dia do Compositor
+
+MESES JÁ INCLUÍDOS NO CSV:
+✅ Janeiro (95 datas)
+✅ Fevereiro (71 datas)
+
+MESES QUE FALTAM ADICIONAR:
+❌ Março
+❌ Abril
+❌ Maio
+❌ Junho
+❌ Julho
+❌ Agosto
+❌ Setembro
+❌ Outubro
+❌ Novembro
+❌ Dezembro
+
+COMO ADICIONAR:
+1. Copie os dados da página web para cada mês
+2. Cole no formato indicado abaixo
+3. Execute o script: node extras/processar-datas-2026.js
+
+---
+
+MARÇO
+[Cole aqui as datas de março no formato: DIA DIASEMANA - DESCRIÇÃO]
+
+ABRIL
+[Cole aqui as datas de abril no formato: DIA DIASEMANA - DESCRIÇÃO]
+
+MAIO
+[Cole aqui as datas de maio no formato: DIA DIASEMANA - DESCRIÇÃO]
+
+JUNHO
+[Cole aqui as datas de junho no formato: DIA DIASEMANA - DESCRIÇÃO]
+
+JULHO
+[Cole aqui as datas de julho no formato: DIA DIASEMANA - DESCRIÇÃO]
+
+AGOSTO
+[Cole aqui as datas de agosto no formato: DIA DIASEMANA - DESCRIÇÃO]
+
+SETEMBRO
+[Cole aqui as datas de setembro no formato: DIA DIASEMANA - DESCRIÇÃO]
+
+OUTUBRO
+[Cole aqui as datas de outubro no formato: DIA DIASEMANA - DESCRIÇÃO]
+
+NOVEMBRO
+[Cole aqui as datas de novembro no formato: DIA DIASEMANA - DESCRIÇÃO]
+
+DEZEMBRO
+[Cole aqui as datas de dezembro no formato: DIA DIASEMANA - DESCRIÇÃO]
