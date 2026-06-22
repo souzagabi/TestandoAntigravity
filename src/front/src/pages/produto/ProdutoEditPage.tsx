@@ -15,13 +15,17 @@ const ProdutoEditPage: React.FC = () => {
 
     const toggleField = (fieldId: string, isVisible: boolean) => {
         setVisibleFields(prev => ({ ...prev, [fieldId]: isVisible }));
+        if (!isVisible) {
+            formik.setFieldValue(fieldId, '');
+        }
     };
 
     const formik = useFormik({
         initialValues: {
             nome: '',
             categoria: '',
-            teste: ''
+            teste1: '',
+            teste2: ''
         },
         validationSchema: Yup.object({
             nome: Yup.string().required('Nome é obrigatório'),
@@ -55,7 +59,8 @@ const ProdutoEditPage: React.FC = () => {
                         formik.setValues({
                             nome: response.data.nome,
                             categoria: response.data.categoria || '',
-                            teste: ''
+                            teste1: '',
+                            teste2: ''
                         });
                     }
                 } catch (error) {
@@ -114,11 +119,11 @@ const ProdutoEditPage: React.FC = () => {
                                 <Col md={3} id="teste1">
                                     <Form.Group>
                                         <Form.Control
-                                            name="teste"
-                                            value={formik.values.teste}
+                                            name="teste1"
+                                            value={formik.values.teste1}
                                             onChange={formik.handleChange}
                                             onBlur={formik.handleBlur}
-                                            placeholder="Digite algo..."
+                                            placeholder="Digite algo para 1..."
                                         />
                                     </Form.Group>
                                 </Col>
@@ -138,11 +143,11 @@ const ProdutoEditPage: React.FC = () => {
                                 <Col md={3} id="teste2">
                                     <Form.Group>
                                         <Form.Control
-                                            name="teste"
-                                            value={formik.values.teste}
+                                            name="teste2"
+                                            value={formik.values.teste2}
                                             onChange={formik.handleChange}
                                             onBlur={formik.handleBlur}
-                                            placeholder="Digite algo..."
+                                            placeholder="Digite algo para 2..."
                                         />
                                     </Form.Group>
                                 </Col>
