@@ -11,11 +11,17 @@ const ProdutoEditPage: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const isEdit = !!id;
     const [isLoading, setIsLoading] = useState(false);
+    const [visibleFields, setVisibleFields] = useState<Record<string, boolean>>({});
+
+    const toggleField = (fieldId: string, isVisible: boolean) => {
+        setVisibleFields(prev => ({ ...prev, [fieldId]: isVisible }));
+    };
 
     const formik = useFormik({
         initialValues: {
             nome: '',
-            categoria: ''
+            categoria: '',
+            teste: ''
         },
         validationSchema: Yup.object({
             nome: Yup.string().required('Nome é obrigatório'),
@@ -48,7 +54,8 @@ const ProdutoEditPage: React.FC = () => {
                     if (response.success && response.data) {
                         formik.setValues({
                             nome: response.data.nome,
-                            categoria: response.data.categoria || ''
+                            categoria: response.data.categoria || '',
+                            teste: ''
                         });
                     }
                 } catch (error) {
@@ -90,6 +97,56 @@ const ProdutoEditPage: React.FC = () => {
                                     </Form.Control.Feedback>
                                 </Form.Group>
                             </Col>
+                        </Row>
+                        <Row>
+                            <Col md={3}>
+                                <Form.Group>
+                                    <Form.Check
+                                        type="checkbox"
+                                        id="check1-id"
+                                        label="Meu Checkbox 1"
+                                        checked={!!visibleFields['teste1']}
+                                        onChange={(e) => toggleField('teste1', e.target.checked)}
+                                    />
+                                </Form.Group>
+                            </Col>
+                            {visibleFields['teste1'] && (
+                                <Col md={3} id="teste1">
+                                    <Form.Group>
+                                        <Form.Control
+                                            name="teste"
+                                            value={formik.values.teste}
+                                            onChange={formik.handleChange}
+                                            onBlur={formik.handleBlur}
+                                            placeholder="Digite algo..."
+                                        />
+                                    </Form.Group>
+                                </Col>
+                            )}
+                            <Col md={3}>
+                                <Form.Group>
+                                    <Form.Check
+                                        type="checkbox"
+                                        id="check2-id"
+                                        label="Meu Checkbox 2"
+                                        checked={!!visibleFields['teste2']}
+                                        onChange={(e) => toggleField('teste2', e.target.checked)}
+                                    />
+                                </Form.Group>
+                            </Col>
+                            {visibleFields['teste2'] && (
+                                <Col md={3} id="teste2">
+                                    <Form.Group>
+                                        <Form.Control
+                                            name="teste"
+                                            value={formik.values.teste}
+                                            onChange={formik.handleChange}
+                                            onBlur={formik.handleBlur}
+                                            placeholder="Digite algo..."
+                                        />
+                                    </Form.Group>
+                                </Col>
+                            )}
                         </Row>
                         <Row className="mb-4">
                             <Col md={12}>
