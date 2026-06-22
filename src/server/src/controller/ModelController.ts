@@ -65,6 +65,7 @@ export default class ModelController<T extends Model> {
             const result = await this.model.create(data);
             res.status(201).json({ success: true, message: "Criado com sucesso", data: result });
         } catch (error) {
+            console.log("Create Error: ", error);
             next(error);
         }
     }
@@ -82,6 +83,7 @@ export default class ModelController<T extends Model> {
             await record.update(req.body);
             res.json({ success: true, message: "Atualizado com sucesso", data: record });
         } catch (error) {
+            console.log("Update Error: ", error);
             next(error);
         }
     }
